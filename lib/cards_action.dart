@@ -37,7 +37,7 @@ class CardsAction extends StatelessWidget {
                       color: const Color.fromARGB(255, 129, 2, 6), width: 2),
                   borderRadius: const BorderRadius.all(Radius.circular(4))),
               width: 380,
-              height: 100,
+              height: 105,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,

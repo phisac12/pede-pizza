@@ -4,14 +4,26 @@ import 'package:pizza_facil/themes/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'list_tiles.dart';
 import 'package:animated_card/animated_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  void launchWhats() async {
+    var urlWhats =
+        "https://api.whatsapp.com/send?l=pt_br&phone=+5511949660992&text=olatodos";
+
+    if (await canLaunch(urlWhats)) {
+      await launch(urlWhats);
+    } else {
+      throw 'Não consegui abrir o Whatsapp';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedCard(
-      direction:AnimatedCardDirection.bottom,
+      direction: AnimatedCardDirection.bottom,
       child: Scaffold(
         drawer: Drawer(
           child: ListView(
@@ -42,6 +54,15 @@ class HomePage extends StatelessWidget {
         ),
         appBar: AppBar(
           centerTitle: true,
+          actions: [
+            IconButton(
+              onPressed: () {
+                launchWhats();
+              },
+              icon: Image.asset('assets/icons/whatsapp_icon.png',
+                  width: 23, height: 23),
+            )
+          ],
           title: Image.asset(
             'assets/images/logo.png',
             width: 55,
@@ -80,7 +101,7 @@ class HomePage extends StatelessWidget {
                     'assets/icons/fidelity.png',
                     const Color.fromARGB(255, 155, 43, 35),
                     const Color.fromARGB(255, 155, 43, 35),
-                    'assets/images/fidelity.png'),
+                    'assets/images/fidelity.jpg'),
                 CardsAction(
                     'Cardápio',
                     'Pizza, porções e bebidas',
@@ -91,12 +112,12 @@ class HomePage extends StatelessWidget {
                     'assets/images/menu.png'),
                 CardsAction(
                     'Avalie-nos',
-                    'Nos avalie no aplicativo para melhorar nossos serviços',
+                    'Avalie nosso aplicativo',
                     const Color.fromARGB(255, 131, 40, 33),
                     'assets/icons/hateus.png',
                     Colors.white,
                     Colors.white,
-                    'assets/images/rate-us.png')
+                    'assets/images/rate-us.jpg')
               ],
             )
           ],
