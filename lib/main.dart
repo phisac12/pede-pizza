@@ -1,13 +1,16 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:pizza_facil/cards_action.dart';
+import 'package:pizza_facil/splash.dart';
 import 'package:pizza_facil/themes/app_colors.dart';
 import 'home_page.dart';
 
 void main() {
-  runApp(const MainPizza());
+  runApp(const SplashScreenPage());
 }
 
 class MainPizza extends StatelessWidget {
-  const MainPizza({Key? key}) : super(key: key);
+  const MainPizza();
 
   @override
   Widget build(BuildContext context) {
@@ -21,4 +24,3 @@ class MainPizza extends StatelessWidget {
     );
   }
 }
-
